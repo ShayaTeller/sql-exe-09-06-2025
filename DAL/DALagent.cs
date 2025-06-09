@@ -106,7 +106,14 @@ class AgentDAL
     public void AddAgent(Agent newagent)
     {
         MySqlCommand cmd = null;
-        string query = $"INSERT INTO agents(codeName, realName, location, status, missionsCompleted) VALUES('{newagent.CodeName}', '{newagent.RealName}', '{newagent.Location}', '{newagent.Status}', {newagent.MissionsCompleted})";
+        string query = "INSERT INTO agents(codeName, realName, location, status, missionsCompleted) VALUES(@CodeName, @realName, @location, @status, @missionsCompleted)";
+        MySqlCommand cmd = new MySqlCommand(query, _conn);
+        cmd.Parameters.AddWithValue("@CodeName", newagent.CodeName);
+        cmd.Parameters.AddWithValue("@realName", newagent.RealName);
+        cmd.Parameters.AddWithValue("@location", newagent.Location);
+        cmd.Parameters.AddWithValue("@status", newagent.Status);
+        cmd.Parameters.AddWithValue("@missionsCompleted", newagent.MissionsCompleted);
+
 
         try
         {

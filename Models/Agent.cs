@@ -13,21 +13,21 @@ namespace c__SQL.Agent
         public  string RealName { get; set; }
         public string Location { get; set; }
         public  string Status { get; set; }
-        public  int MissionsCompleted { get; set; }
-       public Agent( int id,string codename, string realname, string location, string status, int missioncompleted)
+        public  int MissionsCompleated { get; set; }
+       public Agent( int id,string codename, string realname, string location, string status, int missioncompleated)
         {
             Id = id;
             CodeName = codename;
             RealName = realname;
             Location = location;
             Status = status;
-            MissionsCompleted = missioncompleted;
+            MissionsCompleated = missioncompleated;
 
         }
 
         public void printDetails()
         {
-            Console.WriteLine($"the ID: {Id}\n codename: {CodeName} \n RealName: {RealName}\n  Location: {Location}\n Status: {Status}\n MissionsCompleted: {MissionsCompleted}");
+            Console.WriteLine($"the ID: {Id}\n codename: {CodeName} \n RealName: {RealName}\n  Location: {Location}\n Status: {Status}\n MissionsCompleted: {MissionsCompleated}");
 
         }
 

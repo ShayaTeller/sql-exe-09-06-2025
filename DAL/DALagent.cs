@@ -80,11 +80,11 @@ class AgentDAL
                 string RealName = reader.GetString("realName");
                 string Location = reader.GetString("location");
                 string Status = reader.GetString("status");
-                int MissionsCompleted = reader.GetInt32("missionsCompleted");
+                int MissionsCompleted = reader.GetInt32("missionsCompleated");
 
 
 
-                Agent agent1 = new Agent(Id, CodeName, RealName, Location, Status, MissionsCompleted);
+                Agent agent1 = new Agent(Id, CodeName, RealName, Location, Status, MissionsCompleated);
                 AgentList.Add(agent1);
             }
         }
@@ -106,13 +106,13 @@ class AgentDAL
     public void AddAgent(Agent newagent)
     {
         MySqlCommand cmd = null;
-        string query = "INSERT INTO agents(codeName, realName, location, status, missionsCompleted) VALUES(@CodeName, @realName, @location, @status, @missionsCompleted)";
+        string query = "INSERT INTO agents(codeName, realName, location, status, missionsComplaeted) VALUES(@CodeName, @realName, @location, @status, @missionsComplaeted)";
         MySqlCommand cmd = new MySqlCommand(query, _conn);
         cmd.Parameters.AddWithValue("@CodeName", newagent.CodeName);
         cmd.Parameters.AddWithValue("@realName", newagent.RealName);
         cmd.Parameters.AddWithValue("@location", newagent.Location);
         cmd.Parameters.AddWithValue("@status", newagent.Status);
-        cmd.Parameters.AddWithValue("@missionsCompleted", newagent.MissionsCompleted);
+        cmd.Parameters.AddWithValue("@missionsCompleted", newagent.MissionsComplaeted);
 
 
         try
@@ -201,11 +201,11 @@ class AgentDAL
                 string RealName = reader.GetString("realName");
                 string Location = reader.GetString("location");
                 string Status = reader.GetString("status");
-                int MissionsCompleted = reader.GetInt32("missionsCompleted");
+                int MissionsCompleted = reader.GetInt32("missionsComplaeted");
 
 
 
-                agent1 = new Agent(Id, CodeName, RealName, Location, Status, MissionsCompleted);
+                agent1 = new Agent(Id, CodeName, RealName, Location, Status, MissionsComplaeted);
             }
 
         }
@@ -224,7 +224,7 @@ class AgentDAL
             closeConnection();
         }
         Console.WriteLine("");
-        Console.WriteLine($" the code name is: {agent1.CodeName} \n the real name is: {agent1.RealName} \n the location is: {agent1.Location} \n sum missions compleated: {agent1.MissionsCompleted}");
+        Console.WriteLine($" the code name is: {agent1.CodeName} \n the real name is: {agent1.RealName} \n the location is: {agent1.Location} \n sum missions compleated: {agent1.MissionsCompleated}");
 
 
 
